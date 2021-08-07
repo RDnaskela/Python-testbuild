@@ -1,0 +1,11 @@
+n = int(input())
+lst = []
+for i in range(n):
+    x = input()
+    lst.append(x)
+k = input()
+for j in lst:
+    if k.lower() in j.lower():
+        print(j)
+    else:
+        continue
