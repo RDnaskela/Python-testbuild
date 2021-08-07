@@ -1,0 +1,15 @@
+n = int(input())
+l = []
+p = []
+for _ in range(n):
+    l.append(input())
+k = int(input())
+for _ in range(k):
+    p.append(input())
+for i in l:
+    flag = True
+    for j in p:
+        if j.lower() not in i.lower():
+            flag = False
+    if flag == True:
+        print(i)
