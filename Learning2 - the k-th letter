@@ -1,0 +1,10 @@
+n = int(input())
+list = []
+for _ in range(n):
+    list.append(input())
+k = int(input())    
+res = ''
+for s in list:
+    if len(s) >= k:
+        res += s[k - 1] 
+print(res)  
