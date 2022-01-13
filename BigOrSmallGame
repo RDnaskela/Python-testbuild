@@ -1,0 +1,44 @@
+from random import randint
+new_game = 'да'
+print()
+print()
+print('Игра "Угадай число" \ Game "Hot and Cold"')
+print('Добро пожаловать в игру. Тебе нужно угадать число. \ Welcome to game. You need to guess the number.')
+
+def is_valid(i):
+    return i.isdigit()
+while new_game.lower() == 'да':
+    question = input('Желаете ввести диапазон угадываемых чисел самостоятельно? (да или нет) :\n')
+    if question.lower() == 'да':
+        x = 'q'
+        y = 'q'
+        while x.isdigit() == False:
+            x = input('Введите нижний диапазон: ')
+        while y.isdigit() == False:
+            y = input('Введите верхний диапазон: ')
+        num = randint(int(x), int(y))
+    else:
+        print('Установлен стандартный диапазон чисел от 1 до 100')
+        num = randint(1,100)
+    count = 0
+    while True:
+        i = input('Введите предполагаемое число: \n')
+        if is_valid(i) == False:
+            print('А может быть все-таки введем число?\n')
+            continue
+        else:
+            i = int(i)
+        if i > num:
+            print('Ваше число больше загаданного, попробуйте еще раз')
+            count += 1
+            continue
+        elif i < num:
+            print('Ваше число меньше загаданного, попробуйте еще раз')
+            count += 1
+            continue
+
+        elif i == num:
+            print('Вы угадали, с', count + 1, 'попытки, поздравляем!')
+            break
+        new_game = input('Желаете начать новую игру? (да или нет): \n')
+    print('Спасибо, что играли в "Угадай Число". Еще увидимся...')
