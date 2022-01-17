@@ -1,0 +1,22 @@
+def caesar(alphabet):
+    text = input('Text: ')
+    shift = ii('Shift: ')
+
+    def get_char(char, alphabet_, shift_):
+        if char.isalpha():
+            i = 0
+            if char.isupper():
+                i = 1
+            return alphabet_[i][(alphabet_[i].index(char) + shift_) % len(alphabet_[0])]
+        return char
+
+    shifted = "".join([get_char(char, alphabet, shift) for char in text])
+    print(shifted)
+
+def russian_alphabet(): #change russian or english
+    return "".join([chr(char) for char in range(ord('а'), ord('я') + 1)]) # change a and z or а и я
+
+def ii(message=''):
+    return int(input(message))
+
+caesar([russian_alphabet(), russian_alphabet().upper()]) #change russian or english
